@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import ProtectedRoute from './components/ProtectedRoute';
 import './index.css';
@@ -7,12 +7,12 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Profile from './pages/Profile';
-import AdminDashboard from './pages/AdminDashboard';
-import AdminAnalytics from './pages/AdminAnalytics';
+import AdminDashboard from "./pages/Admin/AdminDashboard";
+import AdminAnalytics from "./pages/Admin/AdminAnalytics";
 
 function App() {
   return (
-    <Router>
+    <>
       <Navbar />
       <Routes>
         {/* Public Routes */}
@@ -48,7 +48,7 @@ function App() {
           }
         />
       </Routes>
-    </Router>
+    </>
   );
 }
 
