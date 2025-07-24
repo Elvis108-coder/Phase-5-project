@@ -1,0 +1,15 @@
+{
+  "welcome": "Bienvenue à Afrique Essence",
+  "checkout": "Paiement",
+  "cart": "Panier",
+  "total": "Total",
+  "invoice": "Facture",
+  "placeOrder": "Passer la commande",
+  "thankYou": "Merci pour votre achat !",
+  "backToShop": "Retour à la boutique",
+  "billingInfo": "Informations de facturation",
+  "email": "Adresse e-mail",
+  "name": "Nom",
+  "language": "Langue",
+  "logout": "Se déconnecter"
+}
