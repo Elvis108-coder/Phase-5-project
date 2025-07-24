@@ -21,6 +21,14 @@ class Cart(db.Model):
 
     def __repr__(self):
         return f"<Cart id={self.id} user_id={self.user_id}>"
+    
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "user_id": self.user_id,
+            "created_at": self.created_at.isoformat(),
+            "items": [item.to_dict() for item in self.items]
+        }
 
 # -----------------------------------
 # 
@@ -35,4 +43,12 @@ class CartItem(db.Model):
 
     def __repr__(self):
         return f"<CartItem cart_id={self.cart_id} product_id={self.product_id}>"
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "cart_id": self.cart_id,
+            "product_id": self.product_id,
+            "quantity": self.quantity
+        }
 

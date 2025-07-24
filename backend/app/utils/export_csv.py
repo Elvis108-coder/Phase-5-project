@@ -8,7 +8,7 @@ def generate_csv_response(data, headers, filename='data.csv'):
     writer.writerow(headers)
 
     for row in data:
-        writer.writerow(row)
+        writer.writerow([row.get(h, "") for h in headers])
 
     output = si.getvalue()
     si.close()
