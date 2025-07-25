@@ -12,5 +12,7 @@ class Product(db.Model):
     views = db.Column(db.Integer, default=0)
     category_id = db.Column(db.Integer, db.ForeignKey('categories.id'))
 
+    category = db.relationship('Category', back_populates='products', lazy=True)
+
     def __repr__(self):
         return f'<Product {self.name}>'

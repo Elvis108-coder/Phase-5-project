@@ -22,4 +22,15 @@ class Invoice(db.Model):
 
     def __repr__(self):
         return f"<Invoice id={self.id} order_id={self.order_id}>"
+    
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "user_id": self.user_id,
+            "total": self.total,
+            "created_at": self.created_at.isoformat(),
+            "order_id": self.order_id,
+            "invoice_url": self.invoice_url,
+            "generated_at": self.generated_at.isoformat()
+        }
 

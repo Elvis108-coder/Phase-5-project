@@ -24,6 +24,17 @@ class Order(db.Model):
 
     def __repr__(self):
         return f"<Order id={self.id} user_id={self.user_id} total={self.total_amount}>"
+    
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "user_id": self.user_id,
+            "total_amount": str(self.total_amount),
+            "status": self.status,
+            "created_at": self.created_at.isoformat(),
+            "order_items": [item.to_dict() for item in self.order_items],
+            "invoice": self.invoice.to_dict() if self.invoice else None
+        }
 
 # -----------------------------------
 # 🧾 OrderItem
@@ -41,4 +52,13 @@ class OrderItem(db.Model):
 
     def __repr__(self):
         return f"<OrderItem order_id={self.order_id} product_id={self.product_id}>"
+    
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "order_id": self.order_id,
+            "product_id": self.product_id,
+            "quantity": self.quantity,
+            "price_at_purchase": str(self.price_at_purchase)
+        }
 
