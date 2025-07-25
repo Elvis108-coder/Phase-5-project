@@ -3,14 +3,14 @@ import { useSelector } from "react-redux";
 
 // Layouts
 import Layout from "./components/layout";
-// import AdminLayout from "./components/Adminlayout";
+import AdminLayout from "./components/AdminLayout";
 
 // Public Pages
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-// import Products from "./pages/Products";
-// import ProductDetails from "./pages/ProductDetails";
+import Products from "./pages/Products";
+import ProductDetails from "./pages/ProductDetails";
 
 // Protected Customer Pages
 import Profile from "./pages/Profile";
@@ -19,12 +19,12 @@ import Profile from "./pages/Profile";
 // import Order from "./pages/Orders";
 // import InvoicePage from "./pages/InvoicePage";
 
-// // Admin Pages
-// import AdminDashboard from "./pages/Admin/AdminDashboard";
-// import ProductList from "./pages/Admin/products/ProductList";
-// import ProductForm from "./pages/Admin/products/productForm";
-// import UserList from "./pages/Admin/Userlist";
-// import OrderList from "./pages/Admin/Orderlist";
+// Admin Pages
+import AdminDashboard from "./pages/Admin/AdminDashboard";
+import ProductList from "./pages/Admin/Products/ProductList";
+import ProductForm from "./pages/Admin/Products/ProductForm";
+// import UserList from "./pages/Admin/UserList";
+// import OrderList from "./pages/Admin/OrderList";
 
 // Route Guards
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -40,9 +40,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        {/* <Route path="/products" element={<Products />} />
+        <Route path="/products" element={<Products />} />
         <Route path="/product-details" element={<ProductDetails />} />
-        <Route path="/checkout" element={<CheckoutPage />} />
+        {/* <Route path="/checkout" element={<CheckoutPage />} />
         <Route path="/invoice" element={<InvoicePage />} /> */}
 
         {/* Customer & Admin Shared Protected Routes */}
@@ -90,7 +90,7 @@ function App() {
         /> */}
 
         {/* Admin Routes */}
-        {/* <Route
+        <Route
           element={
             <ProtectedRoute allowedRoles={["admin"]}>
               <AdminLayout />
@@ -101,9 +101,9 @@ function App() {
           <Route path="/admin/products" element={<ProductList />} />
           <Route path="/admin/products/new" element={<ProductForm />} />
           <Route path="/admin/products/edit/:id" element={<ProductForm />} />
-          <Route path="/admin/users" element={<UserList />} />
-          <Route path="/admin/orders" element={<OrderList />} />
-        </Route> */}
+          {/* <Route path="/admin/users" element={<UserList />} />
+          <Route path="/admin/orders" element={<OrderList />} /> */}
+        </Route>
 
         {/* Fallback */}
         <Route path="*" element={<Navigate to="/" replace />} />
