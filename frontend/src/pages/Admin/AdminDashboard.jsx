@@ -37,15 +37,15 @@ export default function AdminDashboard() {
   const fetchDashboardData = async () => {
     // Replace with actual API calls
     setStats({
-      totalProducts: 124,
-      activeUsers: 89,
-      pendingOrders: 23
+      totalProducts: 32,
+      activeUsers: 9,
+      shippedOrders: 8
     });
 
     setSalesData({
-      labels: ['Product A', 'Product B', 'Product C', 'Product D'],
+      labels: ['Glow Boost Mask', 'Argan Oil', 'Matte Lipstick', 'Shear Butter Cream'],
       datasets: [{
-        data: [300, 50, 100, 200],
+        data: [6, 5, 4, 4],
         backgroundColor: [
           '#FF6384',
           '#36A2EB',
@@ -70,7 +70,7 @@ export default function AdminDashboard() {
       ['Metric', 'Value'],
       ['Total Products', stats.totalProducts],
       ['Active Users', stats.activeUsers],
-      ['Pending Orders', stats.pendingOrders],
+      ['Shipped Orders', stats.shippedOrders],
       ...salesData.labels.map((label, i) => [label, salesData.datasets[0].data[i]])
     ];
     exportToCSV(data, 'dashboard_metrics');
@@ -102,16 +102,16 @@ export default function AdminDashboard() {
           <p className="text-3xl font-bold">{stats.activeUsers}</p>
         </div>
         <div className="bg-white p-6 rounded-lg shadow">
-          <h3 className="text-gray-500">Pending Orders</h3>
-          <p className="text-3xl font-bold">{stats.pendingOrders}</p>
+          <h3 className="text-gray-500">Shipped Orders</h3>
+          <p className="text-3xl font-bold">{stats.shippedOrders}</p>
         </div>
       </div>
 
       {/* Charts */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <div className="bg-white p-6 rounded-lg shadow">
+        <div className="bg-white p-6 rounded-lg shadow h-500">
           <h2 className="text-xl font-semibold mb-4">Sales by Product</h2>
-          <div className="h-64">
+          <div className="h-60">
             <Pie data={salesData} />
           </div>
         </div>
